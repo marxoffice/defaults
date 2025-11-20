@@ -193,7 +193,10 @@ func setField(field reflect.Value, currFieldName, defaultVal string) error {
 	switch field.Kind() {
 	case reflect.Ptr:
 		if isInitial || field.Elem().Kind() == reflect.Struct {
-			setField(field.Elem(), currFieldName, defaultVal)
+			err := setField(field.Elem(), currFieldName, defaultVal)
+			if err != nil {
+				return err
+			}
 			callSetter(field.Interface())
 		}
 	case reflect.Struct:

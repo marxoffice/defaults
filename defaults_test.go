@@ -853,3 +853,19 @@ func TestBasicTypeErrorConfig(t *testing.T) {
 	errFloat64 := &ErrFloat64Default{}
 	expectErrorForDefaultSet(t, errFloat64)
 }
+
+type SubErrorDefault struct {
+	ErrSlice  []string `default:"[1,2,3]"`
+	NormalInt int      `default:"1"`
+}
+
+type ParentErrorDefault struct {
+	NormalInt  int              `default:"1"`
+	ErrChild   *SubErrorDefault `default:"{}"`
+	NormalBool bool             `default:"true"`
+}
+
+func TestSubFieldError(t *testing.T) {
+	cfg := &ParentErrorDefault{}
+	expectErrorForDefaultSet(t, cfg)
+}
