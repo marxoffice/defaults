@@ -779,6 +779,7 @@ func expectErrorForDefaultSet(t *testing.T, cfg interface{}) {
 type ErrBoolDefault struct {
 	ErrBool bool `default:"ture"`
 }
+
 type ErrIntDefault struct {
 	ErrInt int `default:"abc"`
 }
@@ -786,6 +787,7 @@ type ErrIntDefault struct {
 type ErrInt8Default struct {
 	ErrInt8 int8 `default:"abc"`
 }
+
 type ErrInt16Default struct {
 	ErrInt16 int16 `default:"abc"`
 }
@@ -801,24 +803,31 @@ type ErrInt64Default struct {
 type ErrUintDefault struct {
 	ErrUint uint `default:"abc"`
 }
+
 type ErrUint8Default struct {
 	ErrUint8 uint8 `default:"abc"`
 }
+
 type ErrUint16Default struct {
 	ErrUint16 uint16 `default:"abc"`
 }
+
 type ErrUint32Default struct {
 	ErrUint32 uint32 `default:"abc"`
 }
+
 type ErrUint64Default struct {
 	ErrUint64 uint64 `default:"abc"`
 }
+
 type ErrUintptrDefault struct {
 	ErrUintptr uintptr `default:"abc"`
 }
+
 type ErrFloat32Default struct {
 	ErrFloat32 float32 `default:"abc"`
 }
+
 type ErrFloat64Default struct {
 	ErrFloat64 float64 `default:"abc"`
 }
