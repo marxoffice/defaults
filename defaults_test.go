@@ -769,3 +769,87 @@ func TestDefaultsSetter(t *testing.T) {
 		t.Errorf("expected 1 for MainInt, got %d", main.MainInt)
 	}
 }
+
+func expectErrorForDefaultSet(t *testing.T, cfg interface{}) {
+	if err := Set(cfg); err == nil {
+		t.Errorf("expected error, got nil")
+	}
+}
+
+type ErrBoolDefault struct {
+	ErrBool bool `default:"ture"`
+}
+type ErrIntDefault struct {
+	ErrInt int `default:"abc"`
+}
+
+type ErrInt8Default struct {
+	ErrInt8 int8 `default:"abc"`
+}
+type ErrInt16Default struct {
+	ErrInt16 int16 `default:"abc"`
+}
+
+type ErrInt32Default struct {
+	ErrInt32 int32 `default:"abc"`
+}
+
+type ErrInt64Default struct {
+	ErrInt64 int64 `default:"abc"`
+}
+
+type ErrUintDefault struct {
+	ErrUint uint `default:"abc"`
+}
+type ErrUint8Default struct {
+	ErrUint8 uint8 `default:"abc"`
+}
+type ErrUint16Default struct {
+	ErrUint16 uint16 `default:"abc"`
+}
+type ErrUint32Default struct {
+	ErrUint32 uint32 `default:"abc"`
+}
+type ErrUint64Default struct {
+	ErrUint64 uint64 `default:"abc"`
+}
+type ErrUintptrDefault struct {
+	ErrUintptr uintptr `default:"abc"`
+}
+type ErrFloat32Default struct {
+	ErrFloat32 float32 `default:"abc"`
+}
+type ErrFloat64Default struct {
+	ErrFloat64 float64 `default:"abc"`
+}
+
+func TestBasicTypeErrorConfig(t *testing.T) {
+	errBool := &ErrBoolDefault{}
+	expectErrorForDefaultSet(t, errBool)
+	errInt := &ErrIntDefault{}
+	expectErrorForDefaultSet(t, errInt)
+	errInt8 := &ErrInt8Default{}
+	expectErrorForDefaultSet(t, errInt8)
+	errInt16 := &ErrInt16Default{}
+	expectErrorForDefaultSet(t, errInt16)
+	errInt32 := &ErrInt32Default{}
+	expectErrorForDefaultSet(t, errInt32)
+	errInt64 := &ErrInt64Default{}
+	expectErrorForDefaultSet(t, errInt64)
+	errUint := &ErrUintDefault{}
+	expectErrorForDefaultSet(t, errUint)
+	errUint8 := &ErrUint8Default{}
+	expectErrorForDefaultSet(t, errUint8)
+	errUint16 := &ErrUint16Default{}
+	expectErrorForDefaultSet(t, errUint16)
+	errUint32 := &ErrUint32Default{}
+	expectErrorForDefaultSet(t, errUint32)
+	errUint64 := &ErrUint64Default{}
+	expectErrorForDefaultSet(t, errUint64)
+	errUintptr := &ErrUintptrDefault{}
+	expectErrorForDefaultSet(t, errUintptr)
+	errFloat32 := &ErrFloat32Default{}
+	expectErrorForDefaultSet(t, errFloat32)
+	errFloat64 := &ErrFloat64Default{}
+	expectErrorForDefaultSet(t, errFloat64)
+}
